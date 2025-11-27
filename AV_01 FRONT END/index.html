@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aroma - Cafeteria Artesanal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="coffee-icon">☕</span>
+                <h1>Café Aroma</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#menu">Cardápio</a>
+                <a href="#contact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-mosaic" aria-hidden="true">
+            <img src="images/cafe-1.png" alt="" loading="lazy">
+            <img src="images/cafe-2.png" alt="" loading="lazy">
+            <img src="images/cafe-3.png" alt="" loading="lazy">
+            <img src="images/cafe-4.png" alt="" loading="lazy">
+            <img src="images/cafe-5.png" alt="" loading="lazy">
+            <img src="images/cafe-6.png" alt="" loading="lazy">
+        </div>
+
+        <div class="hero-content">
+            <h2 class="hero-title">Bem-vindos ao Café Aroma</h2>
+            <p class="hero-subtitle">Onde cada xícara conta uma história especial</p>
+            <button class="cta-button" onclick="scrollToMenu()">
+                ☕ Conheça nosso cardápio
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nossa História</h3>
+                    <p>
+                        Fundado em 2018, o Café Aroma nasceu da paixão por criar experiências únicas 
+                        através do café artesanal. Cada grão é cuidadosamente selecionado e torrado 
+                        para proporcionar sabores excepcionais.
+                    </p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">❤️</span>
+                            <p>Paixão</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⭐</span>
+                            <p>Qualidade</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">👥</span>
+                            <p>Comunidade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <img src="images/cafe-interior.jpg" alt="Interior da cafeteria" class="about-img">
+                    <img src="images/coffee-beans.jpg" alt="Grãos de café" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h3 class="section-title">Nosso Cardápio</h3>
+            <div class="menu-categories">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h4>Cafés Especiais ☕</h4>
+                        <span class="toggle-icon" id="cafes-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="menu-items active" id="cafes-menu">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Espresso Artesanal</h5>
+                                <p>Blend exclusivo da casa</p>
+                            </div>
+                            <span class="price">R$ 8,00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Cappuccino Cremoso</h5>
+                                <p>Com leite vaporizado e canela</p>
+                            </div>
+                            <span class="price">R$ 12,00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Café Gelado</h5>
+                                <p>Refrescante e aromático</p>
+                            </div>
+                            <span class="price">R$ 10,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h4>Doces & Salgados 🥐</h4>
+                        <span class="toggle-icon" id="doces-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="menu-items active" id="doces-menu">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Croissant Artesanal</h5>
+                                <p>Massa folhada crocante</p>
+                            </div>
+                            <span class="price">R$ 15,00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Bolo de Chocolate</h5>
+                                <p>Receita da vovó</p>
+                            </div>
+                            <span class="price">R$ 18,00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h5>Sanduíche Natural</h5>
+                                <p>Ingredientes frescos</p>
+                            </div>
+                            <span class="price">R$ 14,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h3 class="section-title">O que nossos clientes dizem</h3>
+            <div class="testimonial-container">
+                <div class="testimonial active" id="testimonial-0">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"O melhor café da cidade! Ambiente aconchegante e atendimento excepcional."</p>
+                    <span class="author">- Maria Silva</span>
+                </div>
+                <div class="testimonial" id="testimonial-1">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Adoro vir aqui trabalhar. WiFi rápido e café delicioso. Recomendo!"</p>
+                    <span class="author">- João Santos</span>
+                </div>
+                <div class="testimonial" id="testimonial-2">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Os doces artesanais são incríveis. Meu local favorito para relaxar."</p>
+                    <span class="author">- Ana Costa</span>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" onclick="showTestimonial(0)"></span>
+                    <span class="dot" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h3 class="section-title">Entre em Contato</h3>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h4>Informações</h4>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <span>Rua das Flores, 123 - Centro</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <span>(11) 9999-8888</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">✉️</span>
+                        <span>contato@cafearoma.com.br</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🕒</span>
+                        <span>Seg-Dom: 7h às 22h</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h4>Envie uma mensagem</h4>
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <input type="text" id="name" placeholder="Seu nome" required>
+                        <input type="email" id="email" placeholder="Seu e-mail" required>
+                        <textarea id="message" placeholder="Sua mensagem" rows="4" required></textarea>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">            
+            <p>© 2024 Café Aroma. Todos os direitos reservados. Feito com ❤️ e muito café.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

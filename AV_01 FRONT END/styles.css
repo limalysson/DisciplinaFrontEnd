@@ -1,0 +1,622 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fef7ed;
+}
+
+/* ensure full-height calculations work */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: #92400e;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.coffee-icon {
+    font-size: 2rem;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #fbbf24;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - var(--header-height, 0px));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 3rem 1rem;
+}
+
+.hero-mosaic {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 6px;
+    z-index: 1;
+    transform: scale(1.03);
+    pointer-events: none; /* decorative only */
+    filter: saturate(0.95) brightness(0.85);
+}
+
+.hero-mosaic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+/* soft dark overlay between mosaic and content for legibility */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+    z-index: 2;
+}
+
+/* ensure content sits above mosaic and overlay */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: #92400e;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+    
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #a16207;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    
+}
+
+.cta-button {
+    background-color: #a16207;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: bounceIn 1s ease-out 0.6s both;
+}
+
+.cta-button:hover {
+    background-color: #92400e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero-title,
+.hero-subtitle {
+    /* improve legibility over the mosaic background */
+    text-shadow: 0 6px 18px rgba(0,0,0,0.55),
+                 0 2px 6px rgba(0,0,0,0.45);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/* slightly stronger on small screens */
+@media (max-width: 700px) {
+    .hero-title,
+    .hero-subtitle {
+        text-shadow: 0 8px 22px rgba(0,0,0,0.65),
+                     0 3px 8px rgba(0,0,0,0.5);
+    }
+}
+
+/* optional: keep CTA readable too */
+.cta-button {
+    text-shadow: 0 3px 8px rgba(0,0,0,0.45);
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about h3 {
+    font-size: 2.5rem;
+    color: #92400e;
+    margin-bottom: 1.5rem;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.feature {
+    padding: 1rem;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.about-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+/* Menu Section */
+.menu {
+    padding: 80px 0;
+    background-color: #fef3c7;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #92400e;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.menu-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.menu-category {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.menu-category:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.category-header {
+    background-color: #fef3c7;
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.category-header:hover {
+    background-color: #fde68a;
+}
+
+.category-header h4 {
+    color: #92400e;
+    font-size: 1.3rem;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    color: #92400e;
+    transition: transform 0.3s ease;
+}
+
+.menu-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.menu-items.active {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.item-info h5 {
+    color: #92400e;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.price {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.testimonial-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.stars {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.author {
+    color: #92400e;
+    font-weight: bold;
+}
+
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #a16207;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background-color: #92400e;
+    color: white;
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info h4,
+.contact-form h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid #fbbf24;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #a16207;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #92400e;
+}
+
+/* Footer */
+.footer {
+    background-color: #451a03;
+    color: white;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-images {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1100px) {
+    .hero-mosaic {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+    }
+    .hero {
+        padding: 2rem 1rem;
+    }
+    /* make main sections referenced in the nav fill the viewport (subtract header) */
+    .about,
+    .menu,
+    .contact {
+        padding: 2rem 1rem;
+        min-height: calc(100vh - var(--header-height, 0px));
+    }
+}
+
+/* Make each main section fill viewport (subtract header). Move padding into .container so height calc is exact */
+.hero,
+.about,
+.menu,
+.contact,
+.testimonials {
+    height: calc(100vh - var(--header-height, 0px));
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0; /* padding moved to .container */
+}
+
+/* inner container: preserve spacing and allow internal scrolling if needed */
+.about .container,
+.menu .container,
+contact .container,
+.testimonials .container,
+.hero .container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 3rem 1rem;
+    box-sizing: border-box;
+    overflow: auto;
+    max-height: calc(100vh - var(--header-height, 0px));
+}
+
+@media (max-width: 420px) {
+    .hero-mosaic { opacity: 0.6; }
+}
