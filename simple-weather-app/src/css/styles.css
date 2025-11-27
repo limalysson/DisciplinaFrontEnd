@@ -1,0 +1,111 @@
+:root{
+  --bg:#f3f7fb;
+  --card:#ffffff;
+  --accent:#1e88e5;
+  --text:#222;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.container{
+  width:100%;
+  max-width:720px;
+  background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(30,30,30,0.08);
+}
+h1{margin:0 0 12px 0}
+.search{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+.search input{
+  flex:1;
+  padding:10px 12px;
+  border:1px solid #dbe7f6;
+  border-radius:6px;
+  font-size:16px;
+}
+.search button{
+  padding:10px 14px;
+  background:var(--accent);
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+.status{
+  min-height:20px;
+  font-size:14px;
+  margin-bottom:12px;
+  color:#555;
+}
+.result.hidden{display:none}
+.result .hidden{display:none}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:10px;
+}
+.card{
+  background:var(--card);
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #eef5ff;
+}
+.card strong{display:block;color:#666;font-size:13px;margin-bottom:6px}
+.card span{font-size:18px;font-weight:600}
+
+/* spinner de loading */
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 40px; /* Largura do círculo */
+  height: 40px; /* Altura do círculo */
+  border: 4px solid #ccc; /* Cor da borda */
+  border-top: 4px solid var(--accent); /* Cor da parte superior */
+  border-radius: 50%; /* Faz o círculo ser perfeito */
+  animation: spin 1s linear infinite; /* Animação de rotação */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Começa sem rotação */
+  }
+  to {
+    transform: rotate(360deg); /* Gira 360 graus */
+  }
+}
+
+/* ícone do clima (emoji) */
+.weather-icon{
+  font-size:26px;
+  margin-right:8px;
+  vertical-align:middle;
+}
+
+/* ajusta título com ícone */
+#resultCity{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.hidden {
+  display: none; /* Oculta o elemento */
+}

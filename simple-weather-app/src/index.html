@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Consulta de Clima</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Consulta de Clima</h1>
+
+        <form id="searchForm" class="search">
+            <input id="cityInput" type="text" placeholder="Digite o nome da cidade" required />
+            <button id="searchBtn" type="submit">Buscar</button>
+        </form>
+
+        <div id="status" class="status" aria-live="polite"></div>
+
+        <section id="result" class="result hidden">
+            <h2 id="resultCity"></h2>
+            <div class="cards">
+                <div class="card">
+                    <strong>Temperatura Atual</strong>
+                    <span id="temp">-- °C</span>
+                </div>
+                <div class="card">
+                    <strong>Temperatura Mínima</strong>
+                    <span id="tempMin">-- °C</span>
+                </div>
+                <div class="card">
+                    <strong>Temperatura Máxima</strong>
+                    <span id="tempMax">-- °C</span>
+                </div>
+                <div class="card">
+                    <strong>Sensação Térmica</strong>
+                    <span id="feels">-- °C</span>
+                </div>
+                <div class="card">
+                    <strong>Umidade</strong>
+                    <span id="humidity">-- %</span>
+                </div>
+                <div class="card">
+                    <strong>Condição</strong>
+                    <span id="condition">--</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/app.js" defer></script>
+</body>
+</html>
