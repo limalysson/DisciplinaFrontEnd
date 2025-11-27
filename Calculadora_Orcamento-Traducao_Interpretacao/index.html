@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Orçamento - Tradução e Interpretação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Orçamento</h1>
+        <p class="subtitle">Tradução e Interpretação em Libras</p>
+
+        <div class="form-section">
+            <label>Tipo de Serviço:</label>
+            <select id="tipoServico" onchange="mudarServico()">
+                <option value="">Selecione um serviço</option>
+                <option value="interpretacao">Interpretação</option>
+                <option value="traducao">Tradução</option>
+            </select>
+        </div>
+
+        <!-- SEÇÃO INTERPRETAÇÃO -->
+        <div id="secaoInterpretacao" style="display: none;">
+            <h2>Interpretação em Libras</h2>
+            
+            <div class="form-section">
+                <label>Nome do Evento:</label>
+                <input type="text" id="nomeEvento" placeholder="Ex: Conferência de Tecnologia">
+            </div>
+
+            <div class="form-section">
+                <label>Tipo do Evento:</label>
+                <select id="tipoEvento">
+                    <option value="">Selecione um tipo</option>
+                    <option value="Jurídico">Jurídico</option>
+                    <option value="Educação">Educação</option>
+                    <option value="Artístico/Cultural">Artístico/Cultural</option>
+                    <option value="Vídeo Conferência">Vídeo Conferência</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Tempo do Evento (minutos):</label>
+                <input type="number" id="tempoEvento" placeholder="Ex: 120" min="0">
+            </div>
+
+            <div class="form-section">
+                <label>Ficará Gravado?</label>
+                <select id="gravado">
+                    <option value="Não">Não</option>
+                    <option value="Sim">Sim</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Endereço (Opcional):</label>
+                <input type="text" id="endereco" placeholder="Ex: Rua das Flores, 123">
+            </div>
+
+            <button onclick="calcularInterpretacao()" class="btn-calcular">Calcular Orçamento</button>
+        </div>
+
+        <!-- SEÇÃO TRADUÇÃO -->
+        <div id="secaoTraducao" style="display: none;">
+            <h2>Tradução</h2>
+
+            <div class="form-section">
+                <label>Título do Material:</label>
+                <input type="text" id="tituloMaterial" placeholder="Ex: Documentário sobre Amazônia">
+            </div>
+
+            <div class="form-section">
+                <label>Tipo de Material:</label>
+                <select id="tipoMaterial">
+                    <option value="">Selecione um tipo</option>
+                    <option value="VideoBook">VideoBook</option>
+                    <option value="Programa de TV">Programa de TV</option>
+                    <option value="Propaganda de Marcas">Propaganda de Marcas</option>
+                    <option value="Filme">Filme</option>
+                    <option value="Documentário">Documentário</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Tempo do Vídeo (minutos):</label>
+                <input type="number" id="tempoVideo" placeholder="Ex: 90" min="0">
+            </div>
+
+            <div class="form-section">
+                <label>Legendagem?</label>
+                <select id="legendagem">
+                    <option value="Não">Não</option>
+                    <option value="Sim">Sim</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Tipo de Edição:</label>
+                <select id="tipoEdicao">
+                    <option value="">Selecione um tipo</option>
+                    <option value="Simples">Edição Simples</option>
+                    <option value="Completa">Edição Completa</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label>Descrição (Opcional):</label>
+                <textarea id="descricao" placeholder="Ex: Documentário com 5 entrevistas"></textarea>
+            </div>
+
+            <button onclick="calcularTraducao()" class="btn-calcular">Calcular Orçamento</button>
+        </div>
+
+        <!-- RESULTADO -->
+        <div id="resultado" style="display: none;" class="resultado-box">
+            <h2>Resultado do Orçamento</h2>
+            <div id="conteudoResultado"></div>
+            <button onclick="limparFormulario()" class="btn-limpar">Novo Cálculo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

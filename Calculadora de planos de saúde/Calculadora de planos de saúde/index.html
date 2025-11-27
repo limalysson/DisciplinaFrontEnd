@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Planos de Saúde</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Calculadora de Planos de Saúde</h1>
+        <p>
+          Compare as ofertas das operadoras A e B e encontre o melhor
+          custo-benefício
+        </p>
+      </header>
+
+      <div class="content">
+        <div class="form-section">
+          <h2>Seus Dados</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="idade">Idade (anos)</label>
+              <input
+                type="number"
+                id="idade"
+                placeholder="Ex: 30"
+                min="0"
+                max="120"
+              />
+            </div>
+            <div class="form-group">
+              <label for="peso">Peso (kg)</label>
+              <input
+                type="number"
+                id="peso"
+                placeholder="Ex: 70"
+                min="0"
+                step="0.1"
+              />
+            </div>
+            <div class="form-group">
+              <label for="altura">Altura (m)</label>
+              <input
+                type="number"
+                id="altura"
+                placeholder="Ex: 1.75"
+                min="0"
+                step="0.01"
+              />
+            </div>
+          </div>
+
+          <div class="imc-display" id="imcDisplay" style="display: none">
+            <h3>Seu IMC</h3>
+            <div class="imc-value" id="imcValue">-</div>
+            <div class="imc-classification" id="imcClassification">-</div>
+          </div>
+
+          <button class="btn-calcular" onclick="calcularPlanos()">
+            Calcular Planos
+          </button>
+        </div>
+
+        <div class="results-section" id="resultsSection">
+          <h2>Comparação de Preços dos Planos</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Plano</th>
+                <th>Operadora A</th>
+                <th>Operadora B</th>
+                <th>Melhor Opção</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Será preenchido via JavaScript -->
+            </tbody>
+          </table>
+
+          <div class="recommendation" id="recommendation">
+            <!-- Será preenchido via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
